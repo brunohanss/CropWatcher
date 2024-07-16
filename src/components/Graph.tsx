@@ -1,12 +1,12 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo, SetStateAction } from "react";
 import { AxisOptions, Chart } from "react-charts";
 import { Spinner, Text, Box, Button, Checkbox, VStack, HStack } from "@chakra-ui/react";
 import useMeteo from "../hooks/useMeteo";
 import dayjs from "dayjs";
 import "./Header.css";
 
-const Graph = ({ latitude, longitude, isLoaded, currentStep }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+const Graph = ({ latitude, longitude, isLoaded, currentStep }: any) => {
+  const [isMobile] = useState(window.innerWidth < 600);
   const { averageYearData, loading, error } = useMeteo(latitude, longitude, currentStep);
   console.log("average year data", averageYearData);
   const [selectedMonth, setSelectedMonth] = useState(dayjs().month()); // Default to current month
@@ -19,11 +19,11 @@ const Graph = ({ latitude, longitude, isLoaded, currentStep }) => {
     "snowfall",
   ]);
 
-  const handleMonthChange = (month) => {
+  const handleMonthChange = (month: SetStateAction<number>) => {
     setSelectedMonth(month);
   };
 
-  const handleVariableChange = (variable) => {
+  const handleVariableChange = (variable: string) => {
     setSelectedVariables((prev) => {
       if (prev.includes(variable)) {
         return prev.filter((v) => v !== variable);
@@ -36,14 +36,14 @@ const Graph = ({ latitude, longitude, isLoaded, currentStep }) => {
   const filteredData = useMemo(() => {
     if (!averageYearData || !isLoaded || loading) return [];
 
-    const filtered = averageYearData.filter((point) =>
+    const filtered = averageYearData.filter((point: any) =>
       dayjs().dayOfYear(point.dayOfYear).month() === selectedMonth
     );
 
     const dataSeries = selectedVariables.map((variable) => {
       return {
         label: variable.replace(/_/g, ' ').toUpperCase(),
-        data: filtered.map((point) => ({
+        data: filtered.map((point: any) => ({
           primary: dayjs().dayOfYear(point.dayOfYear).hour(point.hour).toDate(),
           secondary: point.data[variable],
         })),
@@ -124,7 +124,8 @@ const Graph = ({ latitude, longitude, isLoaded, currentStep }) => {
       </VStack>
       <Box height={500} mt={4}>
         <Chart
-          height={500}
+        
+          // height={500}
           options={{
             data: filteredData,
             primaryAxis,

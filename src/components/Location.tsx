@@ -14,7 +14,7 @@ type LocationProps = {
   setStep: (int: number) => void;
 };
 
-const Location: React.FC<LocationProps> = ({ setLocation, location, city, country,address1,address2, loading, setStep }) => {
+const Location: React.FC<LocationProps> = ({ setLocation, location,address1,address2, loading, setStep }) => {
   return loading ? (
     <Card
       direction={{ base: 'column', sm: 'row' }}

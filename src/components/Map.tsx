@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import React, { useMemo, useRef, useState } from 'react';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Box, Input } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { LatLngExpression } from 'leaflet';
 
 type MapProps = {
@@ -16,12 +16,12 @@ const Map: React.FC<MapProps> = ({ position, setPosition }) => {
     return <></>
   }
   function DraggableMarker() {
-    const center = {
-        lat: 51.505,
-        lng: -0.09,
-      }
+    // const center = {
+    //     lat: 51.505,
+    //     lng: -0.09,
+    //   }
     const [draggable, ] = useState(true)
-    const [markerPosition, setMarkerPosition] = useState(position)
+    const [, setMarkerPosition] = useState(position)
     const markerRef = useRef(null as any)
     const eventHandlers = useMemo(
       () => ({

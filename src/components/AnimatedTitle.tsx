@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const primaryColor = '#BF372A';
+// const primaryColor = '#BF372A';
 const secondaryColor = '#F2D479';
 const tertiaryColor = '#F25430';
 
@@ -104,16 +104,16 @@ const Subtitle = styled.h2`
   }
 `;
 
-const UseChrome = styled.span`
-  font-size: 10px;
-  color: black;
-  font-family: helvetica, arial;
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-  left: 0;
-`;
+// const UseChrome = styled.span`
+//   font-size: 10px;
+//   color: black;
+//   font-family: helvetica, arial;
+//   position: absolute;
+//   bottom: 20px;
+//   width: 100%;
+//   text-align: center;
+//   left: 0;
+// `;
 
 const Wrapper = styled.div`
   height: 500px;

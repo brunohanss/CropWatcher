@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import  { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { TweenMax, Sine, Power0 } from 'gsap';
 //@ts-ignore
