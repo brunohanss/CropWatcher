@@ -24,7 +24,7 @@ export const useLocation = () => {
     };
     const getPlaceFromCoordinates = async (lat: number, lng: number) => {
         try {
-            const response = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=541f56e654f24192b5c3b24568a15c6b`)
+            const response = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=${import.meta.env.LOCATION_SECRET_KEY}`)
             const providedLocation = await response.json();
             console.log("get location", providedLocation?.features?.[0]?.properties);
             return providedLocation;
