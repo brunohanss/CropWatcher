@@ -1,0 +1,269 @@
+@import url(https://fonts.googleapis.com/css?family=Bowlby+One);
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji');
+::-moz-selection {
+    background: #009688;
+    color: #000;
+}
+
+/* ::selection {
+  background: #009688;
+  color: #000;
+} */
+
+.logo-text {
+    font-family: 'Bowlby One';
+    /* background-color: #181818; */
+    color: #000;
+    font-size: 8px;
+}
+
+
+.span-logo-text {
+    display: inline-block;
+    color: #BF372A;
+    font-size: 6em;
+    transform-origin: 50% 70%;
+}
+
+br {
+    display: none;
+}
+
+
+/* Every second span */
+
+.span-logo-text:nth-child(2n) {
+    /* color: #009688; */
+}
+
+.span-logo-text:nth-child(1) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) .2s both;
+}
+
+.span-logo-text:nth-child(2) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55).4s both;
+}
+
+.span-logo-text:nth-child(3) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55).6s both;
+}
+
+.span-logo-text:nth-child(4) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) .8s both;
+}
+
+.span-logo-text:nth-child(5) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1s both;
+    padding: 0 20px;
+    display: block;
+}
+
+.span-logo-text:nth-child(6) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.2s both;
+}
+
+.span-logo-text:nth-child(7) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.4s both;
+}
+
+.span-logo-text:nth-child(8) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.6s both;
+}
+
+.span-logo-text:nth-child(9) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.6s both;
+}
+
+.span-logo-text:nth-child(10) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.8s both;
+}
+
+.span-logo-text:nth-child(11) {
+    animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 2s both;
+}
+
+
+/* ANIMATION */
+
+@keyframes flipUp {
+    from {
+        transform: rotateX(90deg);
+    }
+
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+
+/* RESPONSIVE STUFF */
+
+@media screen and (min-width: 400px) {
+
+    /* span {
+    font-size: 4em;
+  } */
+    span:nth-child(5) {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+    /* span {
+    font-size: 5em;
+  } */
+    span:nth-child(5) {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 916px) {
+
+    /* span {
+    font-size: 6.2em;
+  } */
+    span:nth-child(5) {
+        display: inline-block;
+        margin: 0;
+
+    }
+}
+
+.responsive-logo {
+    width: 250px;
+    height: 250px;
+}
+
+@media (max-width: 600px) {
+    .responsive-logo {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+:root {
+  --primary-color: #1e90ff;
+  --secondary-color: #ffe221;
+  --tertiary-color: #ffffff;
+}
+
+/* /* html, body {
+  height: 100%;
+} */
+
+body {
+  font-family: 'Baloo Paaji', cursive;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.container {
+  width: 400px;
+  height: 220px;
+  position: absolute;
+}
+
+.title{
+  font-size: 75px;
+  text-transform: uppercase;
+}
+
+.title span, .title span {
+  width: 100%;
+  float: left;
+  color: var(--tertiary-color);
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  transform: translateY(-50px);
+  opacity: 0;
+  animation-name: titleAnimation;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+}
+
+.title span {
+  animation-delay: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+h1 span:first-child {
+  animation-delay: 0.7s;
+}
+
+h1 span:last-child {
+  color: var(--secondary-color);
+  animation-delay: 0.5s;
+}
+
+h2 {
+  top: 0;
+  position: absolute;
+}
+
+h2 span {
+  animation-delay: 4.1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+h2 span:first-child {
+  animation-delay: 4.2s;
+}
+
+h2 span:last-child {
+  color: var(--secondary-color);
+  animation-delay: 4s;
+}
+
+.usechrome {
+  font-size: 10px;
+  color: #fff;
+  font-family: helvetica, arial;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  left: 0;
+}
+
+@keyframes titleAnimation {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+    -webkit-clip-path: polygon(100% 0, 100% 0, 0 100%, 0 100%);
+    clip-path: polygon(100% 0, 100% 0, 0 100%, 0 100%);
+  }
+}
+.mobile-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+}
+
+.mobile-scroll > * {
+  display: inline-flex; /* Ensures children are lined up inline */
+  flex-shrink: 0; /* Prevents children from shrinking */
+}
