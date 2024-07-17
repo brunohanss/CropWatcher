@@ -1,7 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import ThemeSelector from "./ThemeSelector";
 import "./Header.css";
-import { ThreeDScene } from "./AnimatedRabbit";
 import AnimatedTitle from "./AnimatedTitle";
 
 const Header = () => (

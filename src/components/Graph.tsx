@@ -7,7 +7,7 @@ import "./Header.css";
 
 const Graph = ({ latitude, longitude, isLoaded, currentStep }: any) => {
   const [isMobile] = useState(window.innerWidth < 600);
-  const { averageYearData, loading, error } = useMeteo(latitude, longitude, currentStep);
+  const { averageYearData, loadingMeteo, error } = useMeteo(latitude, longitude, currentStep);
   console.log("average year data", averageYearData);
   const [selectedMonth, setSelectedMonth] = useState(dayjs().month()); // Default to current month
   const [selectedVariables, setSelectedVariables] = useState([
@@ -34,7 +34,7 @@ const Graph = ({ latitude, longitude, isLoaded, currentStep }: any) => {
   };
 
   const filteredData = useMemo(() => {
-    if (!averageYearData || !isLoaded || loading) return [];
+    if (!averageYearData || !isLoaded || loadingMeteo) return [];
 
     const filtered = averageYearData.filter((point: any) =>
       dayjs().dayOfYear(point.dayOfYear).month() === selectedMonth
@@ -51,7 +51,7 @@ const Graph = ({ latitude, longitude, isLoaded, currentStep }: any) => {
     });
 
     return dataSeries;
-  }, [averageYearData, isLoaded, loading, selectedMonth, selectedVariables]);
+  }, [averageYearData, isLoaded, loadingMeteo, selectedMonth, selectedVariables]);
 
   const primaryAxis = useMemo<AxisOptions<typeof filteredData[number]["data"][number]>>(
     () => ({
@@ -71,7 +71,7 @@ const Graph = ({ latitude, longitude, isLoaded, currentStep }: any) => {
     []
   );
 
-  if (!isLoaded || loading) return <Spinner />;
+  if (!isLoaded || loadingMeteo) return <Spinner />;
   if (error) return <Text>Error: {(error as any).message}</Text>;
   if (!filteredData.length) return <Text>No data available</Text>;
 

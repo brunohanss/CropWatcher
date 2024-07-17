@@ -22,7 +22,7 @@ const Home = () => {
       <Collapse in={currentStep === 0} animateOpacity>
         <Location setLocation={setLocation} location={location} city={city} country={country} loading={loading} address1={address1} address2={address2} setStep={setStep}/>
       </Collapse>
-      <Collapse in={!(currentStep === 1 && isLoaded)} animateOpacity>
+      <Collapse in={currentStep === 1  && !isLoaded && !loadingMeteo} animateOpacity>
         <Spinner ></Spinner>
       </Collapse> 
       <Collapse in={currentStep === 1 && isLoaded} animateOpacity>
