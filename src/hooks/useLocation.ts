@@ -44,7 +44,7 @@ export const useLocation = () => {
             }});
             const ip = (await ipResponse.json())?.ipAddress;
             
-            const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${import.meta.env.VITE_IP_LOCATION_SECRET_KEY}&ip=${ip ? ip : ''}`);
+            const response = await fetch(`https://api.geoapify.com/v1/ipinfo?=&ip=${ip ? ip : ''}&apiKey=${import.meta.env.VITE_IP_LOCATION_SECRET_KEY}`);
             const data = await response.json();
             await wait(1000);
             setCountry(data?.country_name ?? '');
