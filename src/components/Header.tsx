@@ -25,7 +25,7 @@ const Header = () => (
     <ThemeSelector />
   </Flex>
   {/* <Credits></Credits> */}
-  <ThreeDScene></ThreeDScene>
+  {/* <ThreeDScene></ThreeDScene> */}
   <AnimatedTitle></AnimatedTitle>
   </Flex>
 );

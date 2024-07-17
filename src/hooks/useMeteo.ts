@@ -137,7 +137,7 @@ const useMeteo = (latitude: number, longitude: number, currentStep: number) => {
     }
   }, [isLoaded, meteoData, currentStep]);
 
-  return { meteoData, averageYearData, loading, error, isLoaded };
+  return { meteoData, averageYearData, loadingMeteo: loading, error, isLoaded };
 };
 
 export default useMeteo;

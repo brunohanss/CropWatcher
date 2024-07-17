@@ -24,7 +24,7 @@ export const useLocation = () => {
     };
     const getPlaceFromCoordinates = async (lat: number, lng: number) => {
         try {
-            const response = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=${import.meta.env.LOCATION_SECRET_KEY}`)
+            const response = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=${import.meta.env.VITE_LOCATION_SECRET_KEY}`)
             const providedLocation = await response.json();
             console.log("get location", providedLocation?.features?.[0]?.properties);
             return providedLocation;
@@ -35,11 +35,12 @@ export const useLocation = () => {
 
     const getLocationFromAPI = async () => {
         try {
+            console.log("key", import.meta.env.VITE_IP_LOCATION_SECRET_KEY, import.meta.env.VITE_LOCATION_SECRET_KEY)
             setLoading(true);
             const ipResponse = await fetch(`https://api.ipify.org?format=json`);
             const ip = (await ipResponse.json())?.dns?.ip;
             
-            const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${import.meta.env.IP_LOCATION_SECRET_KEY}&ip=92.137.95.91${ip ? ip : ''}`);
+            const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${import.meta.env.VITE_IP_LOCATION_SECRET_KEY}&ip=${ip ? ip : ''}`);
             const data = await response.json();
             await wait(1000);
             setCountry(data?.country_name ?? '');
