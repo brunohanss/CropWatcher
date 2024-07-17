@@ -37,7 +37,10 @@ export const useLocation = () => {
         try {
             console.log("key", import.meta.env.VITE_IP_LOCATION_SECRET_KEY, import.meta.env.VITE_LOCATION_SECRET_KEY)
             setLoading(true);
-            const ipResponse = await fetch(`https://api.ipify.org?format=json`);
+            const ipResponse = await fetch(`https://api.ipify.org?format=json`, { method: 'GET', headers: {
+                'Content-Type': 'application/json',
+                'Referrer-Policy': 'no-referrer'
+            }});
             const ip = (await ipResponse.json())?.dns?.ip;
             
             const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${import.meta.env.VITE_IP_LOCATION_SECRET_KEY}&ip=${ip ? ip : ''}`);
