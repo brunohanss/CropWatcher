@@ -38,12 +38,13 @@ export const useLocation = () => {
             setLoading(true);
             const ipResponse = await fetch(`https://api.ipify.org?format=json`);
             const ip = (await ipResponse.json())?.dns?.ip;
-            const response = await fetch(`http://ip-api.com/json/${ip ? ip : ''}`);
+            
+            const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${import.meta.env.IP_LOCATION_SECRET_KEY}&ip=92.137.95.91${ip ? ip : ''}`);
             const data = await response.json();
             await wait(1000);
-            setCountry(data?.country ?? '');
+            setCountry(data?.country_name ?? '');
             setCity(data?.city ?? '');
-            setLocation([data.lat, data.lon]);
+            setLocation([data.latitude, data.longitude]);
             setLoading(false);
         } catch (error) {
             console.error(error);
