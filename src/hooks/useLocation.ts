@@ -37,12 +37,12 @@ export const useLocation = () => {
         try {
             console.log("key", import.meta.env.VITE_IP_LOCATION_SECRET_KEY, import.meta.env.VITE_LOCATION_SECRET_KEY)
             setLoading(true);
-            const ipResponse = await fetch(`https://api.ipify.org?format=json`, { method: 'GET', headers: {
+            const ipResponse = await fetch(`https://freeipapi.com/api/json`, { method: 'GET', headers: {
                 'Content-Type': 'application/json',
                 'Origin': 'no-origin',
                 'Referer': 'no-referrer'
             }});
-            const ip = (await ipResponse.json())?.dns?.ip;
+            const ip = (await ipResponse.json())?.ipAddress;
             
             const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${import.meta.env.VITE_IP_LOCATION_SECRET_KEY}&ip=${ip ? ip : ''}`);
             const data = await response.json();
