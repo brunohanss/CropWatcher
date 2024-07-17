@@ -39,7 +39,8 @@ export const useLocation = () => {
             setLoading(true);
             const ipResponse = await fetch(`https://api.ipify.org?format=json`, { method: 'GET', headers: {
                 'Content-Type': 'application/json',
-                'Referrer-Policy': 'no-referrer'
+                'Origin': 'no-origin',
+                'Referer': 'no-referrer'
             }});
             const ip = (await ipResponse.json())?.dns?.ip;
             
