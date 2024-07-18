@@ -51,9 +51,9 @@ export const useLocation = () => {
             }});
             const data = await response.json();
             await wait(1000);
-            setCountry(data?.country_name ?? '');
-            setCity(data?.city ?? '');
-            setLocation([data.latitude, data.longitude]);
+            setCountry(data?.country?.names?.en ?? '');
+            setCity(data?.city?.name ?? '');
+            setLocation([data?.location?.latitude, data?.location.longitude]);
             setLoading(false);
         } catch (error) {
             console.error(error);
