@@ -44,7 +44,11 @@ export const useLocation = () => {
             }});
             const ip = (await ipResponse.json())?.ipAddress;
             
-            const response = await fetch(`https://api.geoapify.com/v1/ipinfo?=&ip=${ip ? ip : ''}&apiKey=${import.meta.env.VITE_IP_LOCATION_SECRET_KEY}`);
+            const response = await fetch(`https://api.geoapify.com/v1/ipinfo?=&ip=${ip ? ip : ''}&apiKey=${import.meta.env.VITE_IP_LOCATION_SECRET_KEY}`,{ method: 'GET', headers: {
+                'Content-Type': 'application/json',
+                'Origin': 'no-origin',
+                'Referer': 'no-referrer'
+            }});
             const data = await response.json();
             await wait(1000);
             setCountry(data?.country_name ?? '');

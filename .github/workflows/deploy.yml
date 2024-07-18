@@ -23,9 +23,9 @@ jobs:
 
       - name: Build Vite app
         env:
-          LOCATION_SECRET_KEY: ${{ secrets.LOCATION_SECRET_KEY }}
+          VITE_LOCATION_SECRET_KEY: ${{ secrets.VITE_LOCATION_SECRET_KEY }}
           
-          IP_LOCATION_SECRET_KEY: ${{ secrets.IP_LOCATION_SECRET_KEY }}
+          VITE_IP_LOCATION_SECRET_KEY: ${{ secrets.VITE_IP_LOCATION_SECRET_KEY }}
         run: npm run build
 
       - name: Deploy to GitHub Pages
