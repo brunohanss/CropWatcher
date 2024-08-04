@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Box, Card, CardBody, Step, StepIcon, StepIndicator, StepNumber, Stepper, StepSeparator, StepStatus, StepTitle, useSteps } from "@chakra-ui/react";
-import "./Header.css";
+// import "./Header.css";
 const StepperComponent = ({ step }: { step: number }) => {
     const steps = [
         { title: 'Location', description: '' },

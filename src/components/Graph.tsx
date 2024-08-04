@@ -3,7 +3,7 @@ import { AxisOptions, Chart } from "react-charts";
 import { Spinner, Text, Box, Button, Checkbox, VStack, HStack } from "@chakra-ui/react";
 import useMeteo from "../hooks/useMeteo";
 import dayjs from "dayjs";
-import "./Header.css";
+// import "./Header.css";
 
 const Graph = ({ latitude, longitude, isLoaded, currentStep }: any) => {
   const [isMobile] = useState(window.innerWidth < 600);

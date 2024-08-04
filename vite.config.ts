@@ -7,7 +7,7 @@ const mobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM);
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  base: '/CropWatcher/',
+  base: '/',
   plugins: [react()],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`

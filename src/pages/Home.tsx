@@ -1,12 +1,16 @@
-import { Box, Collapse, Spinner } from "@chakra-ui/react";
+import { Box, Collapse, Divider, Heading, Spinner } from "@chakra-ui/react";
 import { useLocation } from '../hooks/useLocation';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Location from '../components/Location';
 import StepperComponent from "../components/Stepper";
 import { useState } from "react";
 import useMeteo from "../hooks/useMeteo";
 import Graph from "../components/Graph";
+import Header from "../components/Header";
+import Title from "../components/Title";
+import YearPrevision from "../components/Previsions";
+import Playground from "../components/PlayGround";
+import CallToAction from "../components/CallToAction";
 
 const Home = () => {
   const [currentStep, setStep] = useState<number>(0);
@@ -16,8 +20,15 @@ const Home = () => {
   
 
   return (
-    <Box minH="100vh">
+    <Box height="100vh" display={"flex"} justifyContent="space-between" flexDirection="column">
       <Header />
+      <Divider/>
+      <Title/>
+      <Divider/>
+      <Playground/>
+      <Divider/>
+      <CallToAction/>
+      
       <StepperComponent step={currentStep}></StepperComponent>
       <Collapse in={currentStep === 0} animateOpacity>
         <Location setLocation={setLocation} location={location} city={city} country={country} loading={loading} address1={address1} address2={address2} setStep={setStep}/>
