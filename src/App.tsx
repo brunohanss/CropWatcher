@@ -4,10 +4,11 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Home from "./pages/Home";
 import { themes } from "./theme";
 import { useTheme } from './hooks/useTheme';
+import { useLocation } from "./hooks/useLocation";
 
 function App() {
-  // const [greet, setGreetMsg] = useState("");
-  // const [name] = useState("");
+  
+  const { location, setLocation, city, country, address1, address2, loading } = useLocation();
   const { theme } = useTheme();
 
   // async function greet() {
