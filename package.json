@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:page": "gh-pages -d dist",
     "preview": "vite preview",
     "tauri": "tauri",
     "deploy:analyze": "npx supabase functions deploy analyze  --project-ref dhyjgeuazpbdsrfgpmdj"
